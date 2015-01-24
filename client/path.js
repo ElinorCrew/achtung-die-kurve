@@ -35,7 +35,7 @@ var path = function (inputCoords) {
     };
 
     p.string = function () {
-        return pathString(coords);
+        return d(coords);
     };
 
     p.value = function () {
