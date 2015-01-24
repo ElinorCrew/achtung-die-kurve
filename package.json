@@ -1,0 +1,17 @@
+{
+  "name": "achtung-die-kurve",
+  "version": "0.0.0",
+  "description": "A web-clone of the good old DOS game",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ElinorCrew/achtung-die-kurve.git"
+  },
+  "author": "Teodor Ande Elstad & Simen Haugerud Granlund",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "b523146e36516d82fceef7fe1f6a7a024dbf8ec0"
+}
