@@ -1,32 +1,21 @@
-var path = function () {
+var path = function (input_coords) {
     'use strict';
-    var newCalc = {};
- 
-    newCalc.add = function (number, optional) {
-        return calc((optional || num) + number);
+    var p = {},
+        coords = [];
+
+    if (input_coords) {
+        coords = input_coords;
+    }
+
+    p.push = function (coord) {
+        return path(
+            coords.concat([coord])
+        );
     };
- 
-    newCalc.substract = function (number, optional) {
-        if (optional) {
-            return calc(number - optional);
-        }
-        return calc(num - number);
+
+    p.value = function () {
+        return coords;
     };
- 
-    newCalc.multiplyBy = function (number, optional) {
-        return calc((optional || num) * number);
-    };
- 
-    newCalc.divideBy = function (number, optional) {
-        if (optional) {
-            return calc(number / optional);
-        }
-        return calc(num / number);
-    };
- 
-    newCalc.value = function () {
-        return num;
-    };
- 
-    return newCalc;
-}();
+
+    return p;
+};
