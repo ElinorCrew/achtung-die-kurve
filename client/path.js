@@ -1,18 +1,18 @@
-var path = function (inputCoords) {
+var path = function(inputCoords) {
     'use strict';
 
     var p = {},
         coords = inputCoords || [],
 
-        first = function (array) {
+        first = function(array) {
             return array.slice(0, 1)[0];
         },
 
-        rest = function (array) {
+        rest = function(array) {
             return array.slice(1, array.length);
         },
 
-        d = function (array, command) {
+        d = function(array, command) {
             if (!array[0]) {
                 return '';
             }
@@ -22,24 +22,22 @@ var path = function (inputCoords) {
                 dy = firstCoord[1],
                 arg = command || 'M';
 
-            return arg
-                + dx + ' '
-                + dy
-                + d(rest(array), ' L');
+            return arg + dx + ' ' + dy + d(rest(array), ' L');
         };
 
-    p.push = function (coord) {
+    p.push = function(coord) {
         return path(
             coords.concat([coord])
         );
     };
 
-    p.string = function () {
-        return d(coords);
+
+    p.value = function() {
+        return coords;
     };
 
-    p.value = function () {
-        return coords;
+    p.svg = function() {
+        return '<path d="' + d(coords) + '" />';
     };
 
     return p;
