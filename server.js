@@ -6,6 +6,7 @@ var express = require('express'),
     path = require('path'),
     io = require('socket.io'),
     errorhandler = require('errorhandler'),
+    board = require('./lib/board.js'),
     app = express(),
     options = {
         port: 8080,
@@ -33,16 +34,5 @@ server.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
 
-
-io.on("connect", function (socket) {
-    console.log("Connected");
-
-    socket.on("move", function (state) {
-        var print = ["board : " + state.board, "Player : " + state.player, "Move : " + state.move];
-        console.log(print.join("\n"));
-    });
-
-    socket.on("disconnect", function () {
-        console.log("Disconnected");
-    });
-});
+board.init(io);
+io.sockets.on('connection', board.connect);
