@@ -15,7 +15,11 @@
   "readmeFilename": "README.md",
   "gitHead": "b523146e36516d82fceef7fe1f6a7a024dbf8ec0",
   "dependencies": {
+    "errorhandler": "^1.3.2",
     "express": "^4.2.1",
+    "http-server": "^0.7.4",
+    "path": "^0.11.14",
+    "router": "^1.0.0",
     "socket.io": "*"
   },
   "devDependencies": {
