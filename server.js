@@ -28,11 +28,11 @@ app.get("/", function (req, res) {
 });
 
 var server = http.createServer(app);
-var io = io.listen(server);
+var serverio = io.listen(server);
 
 server.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
 
-board.init(io);
-io.sockets.on('connection', board.connect);
+board.init(serverio);
+serverio.sockets.on('connection', board.connect);
